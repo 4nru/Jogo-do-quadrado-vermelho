@@ -22,7 +22,14 @@ canvas{
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+function ajustarTela() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
 
+ajustarTela();
+
+window.addEventListener("resize", ajustarTela);
 let lanes = [];
 
 function atualizarPistas(){
@@ -225,7 +232,12 @@ function draw(){
 
     // Estrada
     ctx.fillStyle="#555";
-    ctx.fillRect(50,0,300,700);
+    ctx.fillRect(
+    canvas.width * 0.1,
+    0,
+    canvas.width * 0.8,
+    canvas.height
+);
 
     // Faixas
     ctx.strokeStyle="white";
